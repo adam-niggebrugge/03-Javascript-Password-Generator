@@ -5,24 +5,26 @@ let password = {
   allowedLowerCase      : ["z","y","x","w","v","u","t","s","r","q","p","o","n","m","l","k","j","i","h","g","f","e","d","c","b","a"],
   allowedNumbers        : ["0","1","4","7","2","5","8","3","6","9"],
   allowedSpecials       : [".","<",">",",",":",";","?","/","!","@","#","$","%","^","*","(",")","+","-","\&","\"","\'","\\"],
-  characterLengthMin    : 8,
-  characterLengthMax    : 128,
+  characterLengthMin    : 8,    //create constant, in for possible changes in password length minimum, change in a single spot
+  characterLengthMax    : 128,  //create constant, in for possible changes in password length maximum, change in a single spot
   isSpecialCharacter    : false,
   isNumberCharacter     : false,
   isLowerCaseCharacter  : false,
   isUpperCaseCharacter  : false,
-  randomPassword      : "",
-  requestedLength     : 8,
+  randomPassword      : "",  //initialize as empty string
+  requestedLength     : this.characterLengthMin,   //initialized with the minimum length required
   generatePassword: function(){
       //Prompt the user through window domain. First question is of length
-      this.requestedLength  = window.prompt("How many characters long should the password be? Minimum 8, Maximum 128")
+      this.requestedLength  = window.prompt("How many characters long should the password be? Minimum "+this.characterLengthMin+", Maximum "+this.characterLengthMax);
       
-      if(parseInt(this.requestedLength) < 8){
-        this.requestedLength  = window.prompt("Too short, Minimum length 8, Maximum 128. Please specify character length?")
-      }else if(this.requestedLength > 128) {
-        this.requestedLength  = window.prompt("Too long, Minimum length 8, Maximum 128. Please specify character length?")
-      }
-  
+      //Hold the user in a loop til they enter a valid length
+      do {
+        if(parseInt(this.requestedLength) < this.characterLengthMin){
+          this.requestedLength  = window.prompt("Too short, Minimum "+this.characterLengthMin+", Maximum "+this.characterLengthMax+". Please specify character length?");
+        }else if(this.requestedLength > this.characterLengthMax) {
+          this.requestedLength  = window.prompt("Too long, Minimum "+this.characterLengthMin+", Maximum "+this.characterLengthMax+". Please specify character length?");
+        }
+      }while(this.requestedLength < this.characterLengthMin || this.requestedLength > this.characterLengthMax)
   
   
   }
