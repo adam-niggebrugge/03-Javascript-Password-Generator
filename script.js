@@ -37,7 +37,7 @@ let password = {
           }else if(isNaN(this.requestedLength)){
             this.requestedLength  = window.prompt("Not a number. Please enter a value between "+this.characterLengthMin+" and "+this.characterLengthMax+".");
           }
-      }while(this.requestedLength < this.characterLengthMin || this.requestedLength > this.characterLengthMax || isNaN(this.requestedLength))
+      }while(this.requestedLength < this.characterLengthMin || this.requestedLength > this.characterLengthMax || isNaN(this.requestedLength));
   
   },
   
@@ -56,6 +56,11 @@ let password = {
         this.isSpecialCharacter = true;      
       }
       
+      if(!this.isLowerCaseCharacter && !this.isUpperCaseCharacter && !this.isNumberCharacter && !this.isSpecialCharacter){
+         alert("You said NO to ALL possible characters, must accept at least one set of character types to make the password.") 
+         this.determineAcceptableCharacters(); //call itself if all acceptable character sets are marked as being false. they can be stuck in this loop until they read what is going on ;)
+      }
+
 
   }
 
