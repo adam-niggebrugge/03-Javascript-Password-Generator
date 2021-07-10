@@ -14,22 +14,50 @@ let password = {
   randomPassword      : "",  //initialize as empty string
   requestedLength     : this.characterLengthMin,   //initialized with the minimum length required
   generatePassword: function(){
+      //step into the length of the desired password
+      this.determineUsersLength();
+      //step into finding what characters are acceptable
+      this.determineAcceptableCharacters();
+  },
+
+  //No inputs, allows user to access this.requestedLength variable and set it between this.characterLengthMin and this.characterLengthMax
+  determineUsersLength: function(){
       //Prompt the user through window domain. First question is of length
       this.requestedLength  = window.prompt("How many characters long should the password be? Minimum "+this.characterLengthMin+", Maximum "+this.characterLengthMax);
       
       //Hold the user in a loop til they enter a valid length
       do {
-        if(parseInt(this.requestedLength) < this.characterLengthMin){
-          this.requestedLength  = window.prompt("Too short, Minimum "+this.characterLengthMin+", Maximum "+this.characterLengthMax+". Please specify character length?");
-        }else if(this.requestedLength > this.characterLengthMax) {
-          this.requestedLength  = window.prompt("Too long, Minimum "+this.characterLengthMin+", Maximum "+this.characterLengthMax+". Please specify character length?");
-        }
-      }while(this.requestedLength < this.characterLengthMin || this.requestedLength > this.characterLengthMax)
+        //too short?
+          if(parseInt(this.requestedLength) < this.characterLengthMin){
+            this.requestedLength  = window.prompt("Too short, Minimum "+this.characterLengthMin+", Maximum "+this.characterLengthMax+". Please specify character length?");
+        //too long?
+          }else if(this.requestedLength > this.characterLengthMax) {
+            this.requestedLength  = window.prompt("Too long, Minimum "+this.characterLengthMin+", Maximum "+this.characterLengthMax+". Please specify character length?");
+        // not a number   
+          }else if(isNaN(this.requestedLength)){
+            this.requestedLength  = window.prompt("Not a number. Please enter a value between "+this.characterLengthMin+" and "+this.characterLengthMax+".");
+          }
+      }while(this.requestedLength < this.characterLengthMin || this.requestedLength > this.characterLengthMax || isNaN(this.requestedLength))
   
+  },
   
-  }
+  //determine the type of characters the user wants in the password
+  determineAcceptableCharacters: function(){
+      if(confirm("Do you want the password to contain alphabetic lower case characters?")){
+        this.isLowerCaseCharacter = true;  
+      }
+      if(confirm("Do you want the password to contain alphabetic upper case characters?")){
+        this.isUpperCaseCharacter = true;      
+      }
+      if(confirm("Do you want the password to contain numeric characters?")){
+        this.isNumberCharacter = true;      
+      }
+      if(confirm("Do you want the password to contain special characters?")){
+        this.isSpecialCharacter = true;      
+      }
+      
 
-  
+  }
 
 }
 
