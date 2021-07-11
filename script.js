@@ -21,7 +21,7 @@ let password = {
   },
 
   //No inputs, allows user to access this.requestedLength variable and set it between this.characterLengthMin and this.characterLengthMax
-  determineUsersLength: function(){
+  private determineUsersLength: function(){
       //Prompt the user through window domain. First question is of length
       this.requestedLength  = window.prompt("How many characters long should the password be? Minimum "+this.characterLengthMin+", Maximum "+this.characterLengthMax);
       
@@ -42,7 +42,7 @@ let password = {
   },
   
   //determine the type of characters the user wants in the password
-  determineAcceptableCharacters: function(){
+  private determineAcceptableCharacters: function(){
       if(confirm("Do you want the password to contain alphabetic lower case characters?")){
         this.isLowerCaseCharacter = true;  
       }
