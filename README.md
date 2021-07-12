@@ -13,6 +13,9 @@ This demonstrates my ability to code in Javascript using arrays and objects (wit
 
 ## Preview of Website
 
-When navigating here is how the image would render on a laptop/desktop machine's browser with a 1920x1080 display setting.
+As can be seen below, the website is minimal on HTML content and CSS styling.
 
-![JavaScript Functioning](https://github.com/adam-niggebrugge/03-Password_Javascript/blob/main/assets/images/Password%20Functioning.mp4)
+![Still Image](https://github.com/adam-niggebrugge/03-Password_Javascript/blob/main/assets/images/StillOfPasswordGeneration.jpg)
+
+The mp4 is too large to display, but below is a link to the mp4 (which will have to be downloaded to veiw) of how the website should behave.
+[MP4 Link](https://github.com/adam-niggebrugge/03-Password_Javascript/blob/main/assets/images/Password%20Functioning.mp4)
