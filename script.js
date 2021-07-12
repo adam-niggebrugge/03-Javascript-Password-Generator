@@ -22,19 +22,26 @@ let password = {
   requestedLength     : this.characterLengthMin,   //initialized with the minimum length required
   //Main method that calls all the sub methods to give the user the desired password
   generatePassword: function(){
-       //initalize the variables to ensure that repeated attempts are clean sets
+       //initalize the variables to ensure that repeated attempts are clean sets, found during debugging that these were not being reset
        this.randomPassword = "";
        this.requestedCharacterSet.splice(0, this.requestedCharacterSet.length);
        this.guaranteedCharacters.splice(0, this.guaranteedCharacters.length);
-   
+       this.isLowerCaseCharacter = false;
+       this.isUpperCaseCharacter = false;
+       this.isNumberCharacter = false;
+       this.isSpecialCharacter = false;
       //step into the length of the desired password
       this.determineUsersLength();
       //step into finding what characters are acceptable
       this.determineAcceptableCharacters();
       //confirm inputs for generation
-
-      //step into putting a random set of characters together to be returned to the user
-      this.determinePassword();
+      if(this.userConfirms()){
+        //step into putting a random set of characters together to be returned to the user
+        this.determinePassword();
+      }else{
+        window.alert("Exiting password generation. Please press button to generate a password.");
+      }
+      
   },
 
   //No inputs, allows user to access this.requestedLength variable and set it between this.characterLengthMin and this.characterLengthMax
@@ -53,6 +60,8 @@ let password = {
         // not a number   
           }else if(isNaN(this.requestedLength)){
             this.requestedLength  = window.prompt("Not a number. Please enter a value between "+this.characterLengthMin+" and "+this.characterLengthMax+".");
+          }else if(this.requestedLength === ""){
+            this.requestedLength  = window.prompt("No value entered. Please enter a value between "+this.characterLengthMin+" and "+this.characterLengthMax+".");
           }
       }while(this.requestedLength < this.characterLengthMin || this.requestedLength > this.characterLengthMax || isNaN(this.requestedLength));
       
@@ -148,27 +157,33 @@ let password = {
         stringOfAcceptableCharaterTypes = "upper case alphabetic";        
       }else if(this.isUpperCaseCharacter && (this.isNumberCharacter || this.isSpecialCharacter)){
       //potentially numbers and specials are available with lower case already being true and checking if upper is true append with comma
-        stringOfAcceptableCharaterTypes = stringOfAcceptableCharaterTypes.join(", upper case alphbetic");
+        stringOfAcceptableCharaterTypes = stringOfAcceptableCharaterTypes.concat(", upper case alphbetic");
       }else if(this.isUpperCaseCharacter && !this.isNumberCharacter && !this.isSpecialCharacter){
       //no numbers and specials are available with lower case already being true and checking if upper is true append with and
-        stringOfAcceptableCharaterTypes = stringOfAcceptableCharaterTypes.join(" and upper case alphbetic");
+        stringOfAcceptableCharaterTypes = stringOfAcceptableCharaterTypes.concat(" and upper case alphbetic");
       }
-
       //either first part is true or not true, if not true the upper will be first confirmed characters to display in output message   
-      if(this.isNumberCharacter && !this.isLowerCaseCharacter && !this.isUpperCaseCharacter){
+      if(this.isNumberCharacter && !this.isLowerCaseCharacter && !this.isUpperCaseCharacter && !this.isSpecialCharacter){
           stringOfAcceptableCharaterTypes = "numeric";        
-      }else if(this.isNumberCharacter && this.isSpecialCharacter){
+      }else if(this.isNumberCharacter && this.isSpecialCharacter && !this.isLowerCaseCharacter && !this.isUpperCaseCharacter){
         //only numbers and specials are available 
           stringOfAcceptableCharaterTypes = "numeric and special";
-      }else if(this.isNumberCharacter && this.isLowerCaseCharacter && this.isUpperCaseCharacter){
-        //no numbers and specials are available with lower case already being true and checking if upper is true append with and
-          stringOfAcceptableCharaterTypes = stringOfAcceptableCharaterTypes.join(" and numeric");
-      }else if(this.isNumberCharacter && (this.isLowerCaseCharacter || this.isUpperCaseCharacter))
-
-
-        confirm("Password will be "+this.requestedLength+" length and contain lower case alphabetic, upper case alphabetic, numbers and special characters. Do you wish to proceed?")
+      }else if(this.isNumberCharacter && (this.isLowerCaseCharacter || this.isUpperCaseCharacter) && !this.isSpecialCharacter){
+        //numbers but no specials are available with lower case or upper case already being true append an "and ""
+          stringOfAcceptableCharaterTypes = stringOfAcceptableCharaterTypes.concat(" and numeric");
+      }else if(this.isNumberCharacter && (this.isLowerCaseCharacter || this.isUpperCaseCharacter) && this.isSpecialCharacter){
+        //either upper, lower or both are being selected
+        stringOfAcceptableCharaterTypes = stringOfAcceptableCharaterTypes.concat(", numeric and special");
+      }else if(this.isSpecialCharacter && (this.isLowerCaseCharacter || this.isUpperCaseCharacter)){
+        //either upper, lower or both are being selected
+        stringOfAcceptableCharaterTypes = stringOfAcceptableCharaterTypes.concat(" and special");
+      }else if(this.isSpecialCharacter && !this.isLowerCaseCharacter && !this.isUpperCaseCharacter){
+        //either upper, lower or both are being selected
+        stringOfAcceptableCharaterTypes = "special";
+      }
+      //return true or false to if condition which will exit out of generating a password
+      return confirm("Password will be "+this.requestedLength+" characters long and contain "+stringOfAcceptableCharaterTypes+" characters. Do you wish to proceed?");
       
-
   }
 
 }
@@ -177,6 +192,7 @@ let password = {
 let generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
+//modified password as an object to be called
 function writePassword() {
  password.generatePassword();
  let passwordText = document.querySelector("#password");
