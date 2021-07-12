@@ -194,8 +194,10 @@ let generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 //modified password as an object to be called
 function writePassword() {
- password.generatePassword();
+ 
  let passwordText = document.querySelector("#password");
+ passwordText.value = "...generating...";
+ password.generatePassword();
 
  passwordText.value = password.randomPassword;
 
