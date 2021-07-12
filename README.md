@@ -9,10 +9,10 @@ Third bootcamp spot homework. Code refactoring, develop the Javascript to genera
 This demonstrates my ability to code in Javascript using arrays and objects (with self defined methods). The code is broken down to repeated steps being abstracted to a method for the object "password".
 
 ## Want to Click Things?
-Live Website: https://adam-niggebrugge.github.io/01-Horiseon_Refactored/#online-reputation-management
+[Live Website](https://adam-niggebrugge.github.io/03-Password_Javascript/)
 
 ## Preview of Website
 
 When navigating here is how the image would render on a laptop/desktop machine's browser with a 1920x1080 display setting.
 
-![Horiseon_Project](https://github.com/adam-niggebrugge/03-Password_Javascript/blob/main/assets/images)
+![JavaScript Functioning](https://github.com/adam-niggebrugge/03-Password_Javascript/blob/main/assets/images/Password%20Functioning.mp4)
