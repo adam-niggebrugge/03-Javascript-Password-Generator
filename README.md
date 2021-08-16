@@ -1,5 +1,5 @@
 # 03-Password_Javascript
-Exercise in javascript to create a password 
+Exercise in javascript to create a password. HTML and CSS were originally provided as a framework
 
 
 ## Assignment
