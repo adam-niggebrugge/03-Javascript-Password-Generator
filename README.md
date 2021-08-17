@@ -18,6 +18,6 @@ As can be seen below, the website is minimal on HTML content and CSS styling.
 
 ![Still Image](https://github.com/adam-niggebrugge/03-Password_Javascript/blob/main/assets/images/StillOfPasswordGeneration.jpg)
 
-##LICENSE
+## LICENSE
 [MIT License](https://github.com/adam-niggebrugge/03-Password_Javascript/blob/main/LICENSE)
  
