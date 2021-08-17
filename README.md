@@ -1,3 +1,4 @@
+![CodeQuizRefined](https://user-images.githubusercontent.com/83618122/129656713-70673868-c61f-4989-9023-c8aa8bd5ac6f.gif)
 # 03-Password_Javascript
 Exercise in javascript to create a password. HTML and CSS were originally provided as a framework
 
@@ -17,5 +18,8 @@ As can be seen below, the website is minimal on HTML content and CSS styling.
 
 ![Still Image](https://github.com/adam-niggebrugge/03-Password_Javascript/blob/main/assets/images/StillOfPasswordGeneration.jpg)
 
-The mp4 is too large to display, but below is a link to the mp4 (which will have to be downloaded to veiw) of how the website should behave.
-[MP4 Link](https://github.com/adam-niggebrugge/03-Password_Javascript/blob/main/assets/images/Password%20Functioning.mp4)
+
+
+##LICENSE
+[MIT License](https://github.com/adam-niggebrugge/03-Password_Javascript/blob/main/LICENSE)
+ 
