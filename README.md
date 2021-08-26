@@ -16,7 +16,7 @@ Third bootcamp spot homework. Code refactoring, develop the Javascript to genera
 This demonstrates my ability to code in Javascript using arrays and objects (with self defined methods). The code is broken down to repeated steps being abstracted to a method for the object "password" ㊙️.
 
 ## Want to Click Things?
-[Live Website](https://adam-niggebrugge.github.io/03-Password_Javascript/)
+[Live Website](https://adam-niggebrugge.github.io/03-Javascript-Password-Generator/)
 
 ### Preview of Website
 
