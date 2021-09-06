@@ -97,9 +97,7 @@ button[disabled] {
   float: right;
 }
 
-.cust-label-pad{
-  padding: 4em;
-}
+
 
 #password {
   -webkit-appearance: none;
@@ -137,5 +135,11 @@ button[disabled] {
 @media (max-width: 500px) {
   .btn {
     font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 768px){
+  .cust-input-pad{
+    padding-left: 25%;
   }
 }

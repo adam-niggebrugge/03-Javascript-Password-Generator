@@ -17,11 +17,7 @@
     <title>
       Password Generator
     </title>
-    <link 
-      rel="stylesheet" 
-      href="./assets/css/reset.css"
-    />
-    
+   
     <!--Import Google Icon Font-->
     <link 
       href="https://fonts.googleapis.com/icon?family=Material+Icons" 
@@ -47,68 +43,94 @@
         </h1>
       </header>
       <article class="card">
-        <section class="card-header">
+        <section class="card-header center">
           <h2>
             Password Features
           </h2>
+          <p class="center-align">
+            Please toggle features below to determine which characters should be used to generate a random password.
+          </p>
         </section>
-        <div class="card-body">
+        <div class="card-body center-align">
           <section class="switch">
-            <div class="col-6 left">
-              <label class="cust-label-pad">
+            <h6>
+              Lower Case Characters?
+            </h6>
+            <div class="col-6">
+              <label>
                 No
-                <input type="checkbox">
+                <input 
+                  id="isLowerCaseCheck"
+                  type="checkbox"
+                >
                 <span class="lever">
                 </span>
                 Yes
               </label>
             </div>
-            <h6>
-              Lower Case Characters Included?
-            </h6>
           </section>
           <section class="switch">
-            <div class="col-6 left">
-              <label class="cust-label-pad">
+            <h6>
+              Upper Case Characters?
+            </h6>
+            <div class="col-6">
+              <label>
                 No
-                <input type="checkbox">
+                <input 
+                  id="isUpperCaseCheck"
+                  type="checkbox"
+                >
                 <span class="lever">
                 </span>
                 Yes
               </label>
             </div>
-            <h6>
-              Upper Case Characters Included?
-            </h6>
           </section>
           <section class="switch">
-            <div class="col-6 left">
-              <label class="cust-label-pad">
-                No
-                <input type="checkbox">
-                <span class="lever">
-                </span>
-                Yes
-              </label>
-            </div>
             <h6>
-              Special Characters Included?
+              Special Characters?
             </h6>
-          </section>
-          <section class="switch">
-            <div class="col-6 left">
-              <label class="cust-label-pad">
+            <div class="col-6">
+              <label>
                 No
-                <input type="checkbox">
+                <input 
+                  id="isSpecialCharCheck"
+                  type="checkbox"
+                >
                 <span class="lever">
                 </span>
                 Yes
               </label>
             </div>
+          </section>
+          <section class="row switch">
             <h6 class="col-6">
-              Numbers Characters Included?
+              Number Characters?
             </h6>
+            <div class="col-6">
+              <label>
+                No
+                <input 
+                  id="isNumberCharCheck"
+                  type="checkbox"
+                >
+                <span class="lever">
+                </span>
+                Yes
+              </label>
+            </div>
           </section>
+        
+          <div class="row">
+            <div class="center-align cust-input-pad">
+              <div class="col-6">
+                <section class="left">
+                  <input placeholder="Desired Size" id="passwordSize" type="text" class="validate">
+                  <label for="passwordSize">Password Size (Min 8, Max 128)</label>
+                </section>
+              </div>
+            </div>
+          </div>
         </div>
         <section class="card-footer">
           <button 
@@ -121,7 +143,7 @@
 
       <div class="card">
         <div class="card-header">
-          <h2>
+          <h2 class="center-align">
             Generated Password
           </h2>
         </div>
