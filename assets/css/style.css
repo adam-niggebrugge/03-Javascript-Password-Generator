@@ -97,6 +97,10 @@ button[disabled] {
   float: right;
 }
 
+.cust-label-pad{
+  padding: 4em;
+}
+
 #password {
   -webkit-appearance: none;
   -moz-appearance: none;
