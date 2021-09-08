@@ -104,7 +104,7 @@
               </label>
             </div>
           </section>
-          <section class="row switch">
+          <section class="switch">
             <h6 class="col-6">
               Number Characters?
             </h6>
@@ -122,16 +122,17 @@
             </div>
           </section>
         
-          <div class="row">
-            <div class="center-align cust-input-pad">
-              
-                <section class="left col-4">
+          <section class="row">
+            <div class="cust-input-pad">
+                <div class="col m6 s8 offset-l1 offset-m1 offset-s2">
                   <input placeholder="Desired Size" id="passwordSize" type="text" class="validate"/>
-                  <label id="validSizeLabel" for="passwordSize">Password Size (Min 8, Max 128)</label>
-                </section>
-              
+                  <div class="col-4">
+                    <label id="validSizeLabel" for="passwordSize">Password Size (Min 8, Max 128)
+                    </label>
+                  </div>
+                </div>
             </div>
-          </div>
+          </section>
         </div>
         <section class="card-footer">
           <button 
