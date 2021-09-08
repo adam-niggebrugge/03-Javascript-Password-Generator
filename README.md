@@ -20,6 +20,7 @@ This demonstrates my ability to code in Javascript using arrays and objects (wit
 ### Preview of Website
 
 View of the "updated" working site
+
 ![compressed_revised_password](https://user-images.githubusercontent.com/83618122/132596065-d3e69e4f-7118-4288-97af-86db71fcc894.gif)
 
 Below, is the prior working site. It was dependent on window prompts opening. This was to meet the original minimum requirements of the coding bootcamp homework.
