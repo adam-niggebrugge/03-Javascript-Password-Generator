@@ -97,7 +97,13 @@ button[disabled] {
   float: right;
 }
 
+.error{
+  color: red;
+}
 
+.cust-valid{
+  color: green;
+}
 
 #password {
   -webkit-appearance: none;
