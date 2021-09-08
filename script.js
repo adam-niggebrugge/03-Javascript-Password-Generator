@@ -6,6 +6,8 @@ const isSpecialCharEl = document.querySelector("#isSpecialCharCheck");
 const isNumberCharEl = document.querySelector("#isNumberCharCheck");
 const passwordSizeEl = document.querySelector("#passwordSize");
 const passwordSizeLabel = document.querySelector("#validSizeLabel");
+const copyTextBtn = document.querySelector("#copyText");
+const passwordText = document.querySelector("#password");
 
 const characterLengthMin = 8;    //create constant, in for possible changes in password length minimum, change in a single spot
 const  characterLengthMax = 128;  //create constant, in for possible changes in password length maximum, change in a single spot
@@ -126,8 +128,6 @@ const password = {
 function writePassword() {
   //review inputs before execution. Each function handles errors by exiting program execution with empty returns
   if(validateCharactersRequested() && validateLength()){
-    const passwordText = document.querySelector("#password");
-    passwordText.value = "...generating...";
     password.generatePassword();
     passwordText.value = password.randomPassword;
   }
@@ -171,7 +171,7 @@ function validateLength() {
 
 function validateCharactersRequested(){
   if(!isNumberCharEl.checked && !isLowerCaseEl.checked && !isSpecialCharEl.checked && !isUpperCaseEl.checked){
-    alert("You select no character types, must toggle at least one set of character types to make a password.") 
+    alert("You selected no character types, must toggle at least one set of character types to make a password.") 
     return false;
   } else {
     return true;
@@ -182,5 +182,23 @@ function validateCharactersRequested(){
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 passwordSizeEl.addEventListener("keyup", validateLength);
+copyTextBtn.addEventListener("click", function(event) {
+  event.preventDefault();
+  const copyStatusEl = document.querySelector('#copyStatus');
+  //prior Document.execCommand() would be used for copying text to the clip board, but is now deprecated
+  //https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText
+  navigator.clipboard.writeText(passwordText.value.toString())
+    .then(function(){     
+      copyStatusEl.innerHTML = "Successfully Copied";
+      copyStatusEl.setAttribute("class", "cust-valid");
+    },
+    function(err){
+      console.log(err);
+      copyStatusEl.innerHTML = "Error";
+      copyStatusEl.setAttribute("class", "error");
+    });
+  
+  
 
+})
 
