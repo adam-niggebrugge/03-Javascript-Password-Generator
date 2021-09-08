@@ -17,7 +17,7 @@ const password = {
   allowedUpperCase      : ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"],
   allowedLowerCase      : ["z","y","x","w","v","u","t","s","r","q","p","o","n","m","l","k","j","i","h","g","f","e","d","c","b","a"],
   allowedNumbers        : ["0","1","4","7","2","5","8","3","6","9"],
-  allowedSpecials       : [".","<",">",",",":",";","?","/","!","@","#","$","%","^","*","+","-"],
+  allowedSpecials       : [".","<",">",",",":",";","?","!","@","#","$","%","^","*","+","-"],
   //ensure the password always contains at least one character from each requested set
   guaranteedCharacters  : [],
   //this array will append the allowed character arrays for the majority of the randomly selected
@@ -42,9 +42,7 @@ const password = {
        this.isSpecialCharacter = false;
       //set the desired length of the password
       this.requestedLength = parseInt(passwordSizeEl.value);
-      
       this.determineAcceptableCharacters();
-
       //step into putting a random set of characters together to be returned to the user
       this.determinePassword();
       
@@ -102,7 +100,6 @@ const password = {
             //.join method of array used to concat to the partial password
             this.randomPassword = partialPassword.concat(this.guaranteedCharacters.join(''));
             break;
-
     }
   },
 
@@ -129,11 +126,9 @@ const password = {
 function writePassword() {
   //review inputs before execution. Each function handles errors by exiting program execution with empty returns
   if(validateCharactersRequested() && validateLength()){
- 
     const passwordText = document.querySelector("#password");
     passwordText.value = "...generating...";
     password.generatePassword();
-
     passwordText.value = password.randomPassword;
   }
 
@@ -144,7 +139,7 @@ function validateLength() {
     //Prompt the user through window domain. First question is of length
     let sizeChecker  = 0;
     sizeChecker = passwordSizeEl.value;
-    console.log(sizeChecker);
+   
     if(parseInt(sizeChecker) < characterLengthMin){
       passwordSizeLabel.innerHTML = `Too short, Minimum ${characterLengthMin}, Maximum ${characterLengthMax}.`;
       passwordSizeLabel.setAttribute("class", 'error');
@@ -166,7 +161,7 @@ function validateLength() {
       return false;
 
     } else {
-      passwordSizeLabel.innerHTML =  `Accepted`;
+      passwordSizeLabel.innerHTML =  `Good`;
       passwordSizeLabel.setAttribute("class", 'cust-valid');
       return true;
     }
@@ -186,6 +181,6 @@ function validateCharactersRequested(){
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
+passwordSizeEl.addEventListener("keyup", validateLength);
 
 
