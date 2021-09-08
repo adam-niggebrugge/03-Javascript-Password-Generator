@@ -1,21 +1,153 @@
 <!DOCTYPE html>
-<html lang="en">
+<html 
+  lang="en"
+>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Password Generator</title>
-    <link rel="stylesheet" href="./assets/css/reset.css" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <meta 
+      charset="UTF-8" 
+    />
+    <meta 
+      name="viewport" 
+      content="width=device-width, initial-scale=1.0" 
+    />
+    <meta 
+      http-equiv="X-UA-Compatible" 
+      content="ie=edge" 
+    />
+    <title>
+      Password Generator
+    </title>
+   
+    <!--Import Google Icon Font-->
+    <link 
+      href="https://fonts.googleapis.com/icon?family=Material+Icons" 
+      rel="stylesheet"
+    />
+    <!--Import materialize.css-->
+    <link 
+      type="text/css" 
+      rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" 
+      media="screen,projection"
+    />
+    <link 
+      rel="stylesheet" 
+      href="./assets/css/style.css" 
+    />
   </head>
   <body>
     <div class="wrapper">
       <header>
-        <h1>Password Generator</h1>
+        <h1>
+          Password Generator
+        </h1>
       </header>
+    
+      <article class="card">
+        <section class="card-header center">
+          <h2>
+            Password Features
+          </h2>
+          <p class="center-align">
+            Please toggle features below to determine which characters should be used to generate a random password.
+          </p>
+        </section>
+        <div class="card-body center-align">
+          <section class="switch">
+            <h6>
+              Lower Case Characters?
+            </h6>
+            <div class="col-6">
+              <label>
+                No
+                <input 
+                  id="isLowerCaseCheck"
+                  type="checkbox"
+                >
+                <span class="lever">
+                </span>
+                Yes
+              </label>
+            </div>
+          </section>
+          <section class="switch">
+            <h6>
+              Upper Case Characters?
+            </h6>
+            <div class="col-6">
+              <label>
+                No
+                <input 
+                  id="isUpperCaseCheck"
+                  type="checkbox"
+                >
+                <span class="lever">
+                </span>
+                Yes
+              </label>
+            </div>
+          </section>
+          <section class="switch">
+            <h6>
+              Special Characters?
+            </h6>
+            <div class="col-6">
+              <label>
+                No
+                <input 
+                  id="isSpecialCharCheck"
+                  type="checkbox"
+                >
+                <span class="lever">
+                </span>
+                Yes
+              </label>
+            </div>
+          </section>
+          <section class="switch">
+            <h6 class="col-6">
+              Number Characters?
+            </h6>
+            <div class="col-6">
+              <label>
+                No
+                <input 
+                  id="isNumberCharCheck"
+                  type="checkbox"
+                >
+                <span class="lever">
+                </span>
+                Yes
+              </label>
+            </div>
+          </section>
+        
+          <section class="row">
+            <div class="cust-input-pad">
+                <div class="col m6 s8 offset-l1 offset-m1 offset-s2">
+                  <input placeholder="Desired Size" id="passwordSize" type="text" class="validate"/>
+                  <div class="col-4">
+                    <label id="validSizeLabel" for="passwordSize">Password Size (Min 8, Max 128)
+                    </label>
+                  </div>
+                </div>
+            </div>
+          </section>
+        </div>
+        <section class="card-footer">
+          <button 
+            id="generate" 
+            class="btn"
+          >Generate Password
+          </button>
+        </section>
+      </article>
+    
       <div class="card">
         <div class="card-header">
-          <h2>Generate a Password</h2>
+          <h2 class="center-align">
+            Generated Password
+          </h2>
         </div>
         <div class="card-body">
           <textarea
@@ -26,10 +158,18 @@
           ></textarea>
         </div>
         <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>
+          <button id="copyText" class="btn">Copy</button>
         </div>
       </div>
     </div>
-    <script src="script.js"></script>
+
+    <script 
+      src="script.js">
+    </script>
+    <script 
+      type="text/javascript" 
+      src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
+    </script>
+    
   </body>
 </html>
